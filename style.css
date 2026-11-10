@@ -53,6 +53,8 @@ p.secsub{color:var(--muted);margin-bottom:2.2rem;max-width:660px}
 .about-strip img{border-radius:13px;width:100%;border:1px solid var(--line);box-shadow:0 14px 40px rgba(15,23,42,.12)}
 .about-strip p{color:var(--muted);margin-bottom:1rem}
 .about-strip p b{color:var(--navy)}
+.homerail{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:3rem;align-items:start}
+@media(max-width:980px){.homerail{grid-template-columns:1fr}}
 .faqtease{max-width:760px}
 .faqtease details{border:1px solid var(--line);border-radius:11px;background:#fff;padding:1.1rem 1.4rem;margin-bottom:.8rem}
 .faqtease summary{font-family:'Segoe UI',system-ui,Arial,sans-serif;font-weight:600;color:var(--navy);cursor:pointer;font-size:.98rem}
@@ -63,7 +65,9 @@ p.secsub{color:var(--muted);margin-bottom:2.2rem;max-width:660px}
 .prod .img{border-bottom:1px solid var(--line);background:var(--light);aspect-ratio:16/8.5;overflow:hidden}
 .prod .img img{width:100%;height:100%;object-fit:cover;display:block}
 .prod .img.nopic{display:flex;align-items:center;justify-content:center}
-.prod .body{padding:1.2rem 1.3rem;flex:1;display:flex;flex-direction:column}
+.prod .body{padding:1.2rem 1.3rem 0;flex:1;display:flex;flex-direction:column}
+.prodlink{display:flex;flex-direction:column;flex:1;text-decoration:none;color:inherit}
+.prod{display:flex;flex-direction:column}
 .prod h3{font-family:'Segoe UI',system-ui,Arial,sans-serif;font-size:1.08rem;color:var(--navy)}
 .prod .price{font-family:'Segoe UI',system-ui,Arial,sans-serif;font-weight:800;color:#0284c7;font-size:1.05rem;margin:.3rem 0 .5rem}
 .prod .price .free{color:var(--green)}
@@ -76,7 +80,7 @@ p.secsub{color:var(--muted);margin-bottom:2.2rem;max-width:660px}
 .postwrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:2.6rem;max-width:1180px;margin:0 auto;padding:2.6rem 1.5rem 4rem;align-items:start}
 article.post{max-width:none;min-width:0;padding:0}
 .rail{position:sticky;top:86px}
-.rail .rprod{border:1px solid var(--line);border-radius:13px;overflow:hidden;margin-bottom:1.2rem;background:#fff;text-decoration:none;color:var(--text);display:block;transition:box-shadow .2s,transform .15s}
+.rail .rprod{border:1px solid var(--line);border-radius:13px;overflow:hidden;margin-bottom:1.6rem;background:#fff;text-decoration:none;color:var(--text);display:block;transition:box-shadow .2s,transform .15s}
 .rail .rprod:hover{box-shadow:0 10px 30px rgba(15,23,42,.1);transform:translateY(-2px)}
 .rail .rprod img{width:100%;display:block;border-bottom:1px solid var(--line)}
 .rail .rprod .rb{padding:.9rem 1rem}
