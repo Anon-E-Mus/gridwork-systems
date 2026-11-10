@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gridworksystems.site/sitemap.xml
