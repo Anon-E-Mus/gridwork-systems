@@ -11,22 +11,24 @@
 <meta property="og:description" content="You don&#x27;t need a $30/month subscription to know who owes you money. A register, some formulas and red/green flags do the job until you genuinely outgrow them.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://gridworksystems.site/assets/forecaster_p2.png">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to track invoices without accounting software","description":"You don't need a $30/month subscription to know who owes you money. A register, some formulas and red/green flags do the job until you genuinely outgrow them.","author":{"@type":"Organization","name":"Gridwork Systems"},"datePublished":"2026-11-10","mainEntityOfPage":"https://gridworksystems.site/articles/track-invoices-without-accounting-software.html"}</script>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <header class="site"><div class="wrap row">
 <a class="brand sans" href="../index.html"><span class="mark"><i></i><i></i><i></i><i></i></span><b>Grid<span>work</span> Systems</b></a>
-<nav><a href="../index.html#articles">Guides</a><a href="../index.html#templates">Templates</a><a href="https://whop.com/gridwork-systems/">Store ↗</a></nav>
+<nav><a href="../index.html#articles">Guides</a><a href="../index.html#templates">Templates</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="https://whop.com/gridwork-systems/">Store ↗</a></nav>
 </div></header>
 <article class="post">
 <div class="crumbs sans"><a href="../index.html">Guides</a> &rsaquo; <a href="../index.html#articles">Invoicing &amp; Getting Paid</a></div>
 <h1>How to track invoices without accounting software</h1>
 <p class="sub">You don&#x27;t need a $30/month subscription to know who owes you money. A register, some formulas and red/green flags do the job until you genuinely outgrow them.</p>
 <div class="metaline"><span class="cat">Invoicing &amp; Getting Paid</span><span>4 min read</span><span>Gridwork Systems &middot; Nov 2026</span></div>
+<div class="tldr"><b>The gist</b>You don&#x27;t need a $30/month subscription to know who owes you money. A register, some formulas and red/green flags do the job until you genuinely outgrow them.</div>
 <p><em>Accounting software costs $30+ every month, forever, and most small businesses use about 10% of it. Here's what that missing 90% of businesses actually need instead — and the spreadsheet pattern that delivers it.</em></p>
 <figure><img src="../assets/invoices_p1.png" alt="Invoice register — product/renders/Small_Business_Invoice_Tracker.pdf" loading="lazy"><figcaption>Invoice register — product/renders/Small_Business_Invoice_Tracker.pdf</figcaption></figure>
-<h2>Who actually needs QuickBooks</h2>
+<h2 id="s1">Who actually needs QuickBooks</h2>
 <p>Not a criticism of QuickBooks — it's good software. The question is whether you're its customer.</p>
 <p>If you have employees running payroll, inventory across locations, or an accountant asking for Xero/QuickBooks files, yes: buy the software.</p>
 <p>If you're a contractor, freelancer, consultant, agency of one-to-five, or any business that <strong>sends invoices and wants to know who hasn't paid</strong> — you need about four things:</p>
@@ -35,7 +37,8 @@
 <p>3. A way to see, at a glance, <strong>who owes you what and how late</strong></p>
 <p>4. A printable, professional invoice</p>
 <p>That's it. That list is fully deliverable in one Excel file with no monthly fee. Here's the pattern.</p>
-<h2>The register: one row per invoice</h2>
+<h2 id="s2">The register: one row per invoice</h2>
+<figure class="photo"><img src="../assets/photos/paperwork.jpg" alt="The paper trail that becomes your money story." loading="lazy"><figcaption>The paper trail that becomes your money story.</figcaption></figure>
 <p>The entire system is a table where each row is one invoice:</p>
 <table><tbody>
 <tr><td>Invoice #</td><td>Issue date</td><td>Client</td><td>Description</td><td>Subtotal</td><td>Tax</td><td>Total</td><td>Due date</td><td>Status</td><td>Paid date</td><td>Amount paid</td><td>Balance</td></tr>
@@ -54,7 +57,7 @@
 <li><strong>Past-due rows with money still open turn red.</strong> Not "past due by the due date field" — the formula checks the <em>due date against today</em> <em>and</em> whether a balance remains, so paid invoices never nag you.</li>
 </ul>
 <figure><img src="../assets/invoices_p1.png" alt="red/green conditional formatting — product/renders/Small_Business_Invoice_Tracker.pdf" loading="lazy"><figcaption>red/green conditional formatting — product/renders/Small_Business_Invoice_Tracker.pdf</figcaption></figure>
-<h2>The aging report: your most powerful awkward conversation</h2>
+<h2 id="s3">The aging report: your most powerful awkward conversation</h2>
 <p>The second sheet is where money actually gets collected. An <strong>aging report</strong> buckets every open invoice by how late it is:</p>
 <ul>
 <li><strong>1–30 days late</strong> — gentle reminder territory</li>
@@ -64,7 +67,8 @@
 </ul>
 <p>The formula is one <code>SUMPRODUCT</code> checking three things at once: is the due date before today, is it inside this bucket, and is money still open. The result is a number every business owner should be able to answer instantly: <strong>how much money is out there, and how overdue?</strong></p>
 <p>The buckets aren't just information — they're an action plan. Each bucket maps to one specific, pre-decided escalation step, which removes the emotional friction of chasing money. You're not "deciding whether to follow up"; you're executing step two of four on invoices in bucket two.</p>
-<h2>The escalation ladder (steal these scripts)</h2>
+<h2 id="s4">The escalation ladder (steal these scripts)</h2>
+<figure class="photo"><img src="../assets/photos/notebook.jpg" alt="The system that survives is the one you&#x27;ll actually maintain." loading="lazy"><figcaption>The system that survives is the one you&#x27;ll actually maintain.</figcaption></figure>
 <ul>
 <li><strong>Due date day:</strong> "Hi [name], invoice INV-014 for [amount] was due today — all fine here, just flagging it in case it slipped the calendar. Happy to resend anything."</li>
 <li><strong>Day 14:</strong> "Following up on INV-014 ([amount], due [date]). If it's scheduled, could you share the payment date? If something's wrong with the invoice itself, tell me and I'll fix it today."</li>
@@ -72,9 +76,9 @@
 <li><strong>Day 45+:</strong> formal written request, state the amount, dates, and next step (collections/small claims in your jurisdiction). Calm, factual, zero adjectives.</li>
 </ul>
 <p>One line in each: factual, unemotional, escalating. The spreadsheet tells you <em>which</em> line to send; you send it.</p>
-<h2>The printable invoice</h2>
+<h2 id="s5">The printable invoice</h2>
 <p>A register that can't produce a client-facing invoice isn't finished. The trick is a <strong>print sheet</strong> driven by one dropdown: pick the invoice number, and every field — your business header, the client's details, description, subtotal, tax, total, due date, payment instructions — fills in via lookup formulas. Set the print area once. Now "send the invoice" is: pick number → print to PDF → attach.</p>
-<h2>When you've outgrown the spreadsheet</h2>
+<h2 id="s6">When you've outgrown the spreadsheet</h2>
 <p>Honest thresholds, from running this pattern at scale:</p>
 <ul>
 <li><strong>Revenue past ~$8–10k/month</strong>, or <strong>invoices per month past ~50</strong> — the manual entry starts costing real time</li>
@@ -83,28 +87,29 @@
 <li><strong>Your accountant asks for software files</strong> — their hour is worth more than the subscription</li>
 </ul>
 <p>Until then, the spreadsheet is faster to use, trivially customizable, and costs $19 once instead of $360 a year.</p>
-<h2>The shortcut</h2>
+<h2 id="s7">The shortcut</h2>
 <p>The whole pattern — register, auto-math, red/green flags, aging dashboard, printable invoice sheet, 200-invoice capacity — is the <strong>Small Business Invoice &amp; Payment Tracker</strong> (<a href="https://whop.com/gridwork-systems/">$19, instant download</a>).</p>
 <p>If you want the invoice register <em>plus</em> expense tracking, quote calculator, cashflow forecast and the dashboard all linked in one file, that's the <strong>Small Business Command Center</strong> ($49) on the same page.</p>
 <p>And if you just want to see whether spreadsheet bookkeeping fits you before paying anything, there's a <strong>free 12-month cashflow forecaster</strong> there too.</p>
 <p><em>This is bookkeeping assistance, not accounting or tax advice. Works in Excel and Google Sheets.</em></p>
 <div class="related">
 <h4>Keep reading</h4>
-<a href="quote-vs-invoice-what-to-send-when.html">Quote vs invoice: what to send and when (with templates)</a><a href="aging-report-who-owes-you-money.html">Aging report: which customers owe you money</a>
+<a href="../articles/quote-vs-invoice-what-to-send-when.html">Quote vs invoice: what to send and when (with templates)</a><a href="../articles/aging-report-who-owes-you-money.html">Aging report: which customers owe you money</a>
 </div>
 <div class="cta sans">
 <b>Get the system these guides are written about</b>
 <p>Invoices, expenses, clients, quotes and a 12-month cashflow forecast — linked in one workbook. Or start with the free forecaster.</p>
 <a class="btn" href="https://whop.com/gridwork-systems/">Browse the templates</a>
-<a class="btn ghost" href="https://whop.com/gridwork-systems/">Free forecaster</a>
+<a class="btn ghost" href="../products/cashflow-forecaster.html">Free forecaster</a>
 </div>
 </article>
 <footer class="site"><div class="wrap">
 <div class="cols">
-<div><h5>Gridwork Systems</h5><p>Spreadsheet systems for small businesses: cashflow forecasting, invoice tracking and bookkeeping dashboards. Built by people who use them daily.</p></div>
+<div><h5>Gridwork Systems</h5><p>Spreadsheet systems for small businesses: cashflow forecasting, invoice tracking and bookkeeping dashboards — built by people who run them daily.</p></div>
 <div><h5>Popular guides</h5><a href="../articles/the-12-month-cash-flow-template.html">The 12-month cash flow template every small business needs</a><a href="../articles/why-small-businesses-run-out-of-cash.html">Why your small business runs out of cash (and the forecast that prevents it)</a></div>
 <div><h5>More guides</h5></div>
+<div><h5>Site</h5><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../credits.html">Photo credits</a><a href="https://whop.com/gridwork-systems/">Template shop ↗</a></div>
 </div>
-<div class="fine">© 2026 Gridwork Systems &middot; <a href="https://whop.com/gridwork-systems/">whop.com/gridwork-systems</a> &middot; Works in Excel and Google Sheets</div>
+<div class="fine">© 2026 Gridwork Systems &middot; <a href="https://whop.com/gridwork-systems/">whop.com/gridwork-systems</a> &middot; Works in Excel and Google Sheets &middot; Photos: Creative Commons (see credits)</div>
 </div></footer>
 </body></html>
