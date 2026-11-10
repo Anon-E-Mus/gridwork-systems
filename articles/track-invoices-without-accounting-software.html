@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to track invoices without accounting software — Gridwork Systems</title>
+<meta name="description" content="You don&#x27;t need a $30/month subscription to know who owes you money. A register, some formulas and red/green flags do the job until you genuinely outgrow them.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site"><div class="wrap row">
+<a class="brand" href="../index.html"><span class="mark"><i></i><i></i><i></i><i></i></span><b>Grid<span>work</span> Systems</b></a>
+<nav><a href="../index.html#articles">Articles</a><a href="https://whop.com/gridwork-systems/">Templates</a></nav>
+</div></header>
+<article class="post">
+<h1>How to track invoices without accounting software</h1>
+<p class="sub">You don&#x27;t need a $30/month subscription to know who owes you money. A register, some formulas and red/green flags do the job until you genuinely outgrow them.</p>
+<p class="meta">Gridwork Systems &middot; <time>Nov 2026</time></p>
+<p><em>Accounting software costs $30+ every month, forever, and most small businesses use about 10% of it. Here's what that missing 90% of businesses actually need instead — and the spreadsheet pattern that delivers it.</em></p>
+<figure><img src="../assets/invoices_p1.png" alt="Invoice register — product/renders/Small_Business_Invoice_Tracker.pdf" loading="lazy"><figcaption>Invoice register — product/renders/Small_Business_Invoice_Tracker.pdf</figcaption></figure>
+<h2>Who actually needs QuickBooks</h2>
+<p>Not a criticism of QuickBooks — it's good software. The question is whether you're its customer.</p>
+<p>If you have employees running payroll, inventory across locations, or an accountant asking for Xero/QuickBooks files, yes: buy the software.</p>
+<p>If you're a contractor, freelancer, consultant, agency of one-to-five, or any business that <strong>sends invoices and wants to know who hasn't paid</strong> — you need about four things:</p>
+<p>1. A list of every invoice you've sent, and its status</p>
+<p>2. Automatic math: tax, totals, due dates</p>
+<p>3. A way to see, at a glance, <strong>who owes you what and how late</strong></p>
+<p>4. A printable, professional invoice</p>
+<p>That's it. That list is fully deliverable in one Excel file with no monthly fee. Here's the pattern.</p>
+<h2>The register: one row per invoice</h2>
+<p>The entire system is a table where each row is one invoice:</p>
+<p>| Invoice # | Issue date | Client | Description | Subtotal | Tax | Total | Due date | Status | Paid date | Amount paid | Balance |</p>
+<p>You enter: issue date, client, description, subtotal. <strong>The spreadsheet computes everything else:</strong></p>
+<ul>
+<li>Tax: `=subtotal × tax_rate` (tax rate set once, in Settings)</li>
+<li>Total: `=subtotal + tax`</li>
+<li>Due date: `=issue_date + terms_days` (your terms, set once)</li>
+<li>Balance: `=total − amount_paid`</li>
+<li>Invoice number: `="INV-" &amp; TEXT(row_number, "000")` — auto-numbering, no gaps, no duplicates</li>
+</ul>
+<p>Set the status as the invoice moves (Draft → Sent → Part-Paid → Paid → Cancelled) and the sheet does two visual tricks worth the price of admission alone:</p>
+<ul>
+<li><strong>Paid rows turn green.</strong> One glance = what's settled.</li>
+<li><strong>Past-due rows with money still open turn red.</strong> Not "past due by the due date field" — the formula checks the <em>due date against today</em> <em>and</em> whether a balance remains, so paid invoices never nag you.</li>
+</ul>
+<figure><img src="../assets/invoices_p1.png" alt="red/green conditional formatting — product/renders/Small_Business_Invoice_Tracker.pdf" loading="lazy"><figcaption>red/green conditional formatting — product/renders/Small_Business_Invoice_Tracker.pdf</figcaption></figure>
+<h2>The aging report: your most powerful awkward conversation</h2>
+<p>The second sheet is where money actually gets collected. An <strong>aging report</strong> buckets every open invoice by how late it is:</p>
+<ul>
+<li><strong>1–30 days late</strong> — gentle reminder territory</li>
+<li><strong>31–60 days late</strong> — firmer follow-up</li>
+<li><strong>61–90 days late</strong> — direct conversation, payment plan territory</li>
+<li><strong>90+ days late</strong> — formal demand / collections decision</li>
+</ul>
+<p>The formula is one `SUMPRODUCT` checking three things at once: is the due date before today, is it inside this bucket, and is money still open. The result is a number every business owner should be able to answer instantly: <strong>how much money is out there, and how overdue?</strong></p>
+<p>The buckets aren't just information — they're an action plan. Each bucket maps to one specific, pre-decided escalation step, which removes the emotional friction of chasing money. You're not "deciding whether to follow up"; you're executing step two of four on invoices in bucket two.</p>
+<h2>The escalation ladder (steal these scripts)</h2>
+<ul>
+<li><strong>Due date day:</strong> "Hi [name], invoice INV-014 for [amount] was due today — all fine here, just flagging it in case it slipped the calendar. Happy to resend anything."</li>
+<li><strong>Day 14:</strong> "Following up on INV-014 ([amount], due [date]). If it's scheduled, could you share the payment date? If something's wrong with the invoice itself, tell me and I'll fix it today."</li>
+<li><strong>Day 30:</strong> "I need to get INV-014 ([amount], 30 days past due) onto my own payables list honestly — can we set a specific payment date this week, or split it into two payments?"</li>
+<li><strong>Day 45+:</strong> formal written request, state the amount, dates, and next step (collections/small claims in your jurisdiction). Calm, factual, zero adjectives.</li>
+</ul>
+<p>One line in each: factual, unemotional, escalating. The spreadsheet tells you <em>which</em> line to send; you send it.</p>
+<h2>The printable invoice</h2>
+<p>A register that can't produce a client-facing invoice isn't finished. The trick is a <strong>print sheet</strong> driven by one dropdown: pick the invoice number, and every field — your business header, the client's details, description, subtotal, tax, total, due date, payment instructions — fills in via lookup formulas. Set the print area once. Now "send the invoice" is: pick number → print to PDF → attach.</p>
+<h2>When you've outgrown the spreadsheet</h2>
+<p>Honest thresholds, from running this pattern at scale:</p>
+<ul>
+<li><strong>Revenue past ~$8–10k/month</strong>, or <strong>invoices per month past ~50</strong> — the manual entry starts costing real time</li>
+<li><strong>You hire employees</strong> — payroll is genuinely software territory</li>
+<li><strong>You carry inventory</strong> across SKUs — same</li>
+<li><strong>Your accountant asks for software files</strong> — their hour is worth more than the subscription</li>
+</ul>
+<p>Until then, the spreadsheet is faster to use, trivially customizable, and costs $19 once instead of $360 a year.</p>
+<h2>The shortcut</h2>
+<p>The whole pattern — register, auto-math, red/green flags, aging dashboard, printable invoice sheet, 200-invoice capacity — is the <strong>Small Business Invoice &amp; Payment Tracker</strong> (<a href="https://whop.com/gridwork-systems/">$19, instant download</a>).</p>
+<p>If you want the invoice register <em>plus</em> expense tracking, quote calculator, cashflow forecast and the dashboard all linked in one file, that's the <strong>Small Business Command Center</strong> ($49) on the same page.</p>
+<p>And if you just want to see whether spreadsheet bookkeeping fits you before paying anything, there's a <strong>free 12-month cashflow forecaster</strong> there too.</p>
+<p>---</p>
+<p><em>This is bookkeeping assistance, not accounting or tax advice. Works in Excel and Google Sheets.</em></p>
+</article>
+<footer class="site"><div class="wrap">Gridwork Systems &middot; Spreadsheet systems for small businesses &middot; <a href="https://whop.com/gridwork-systems/">whop.com/gridwork-systems</a></div></footer>
+</body></html>

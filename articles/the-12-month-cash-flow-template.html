@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The 12-month cash flow template every small business needs — Gridwork Systems</title>
+<meta name="description" content="Most small businesses don&#x27;t die from losing money — they die from the gap between doing the work and getting paid. The spreadsheet that shows that gap coming, a year in advance.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site"><div class="wrap row">
+<a class="brand" href="../index.html"><span class="mark"><i></i><i></i><i></i><i></i></span><b>Grid<span>work</span> Systems</b></a>
+<nav><a href="../index.html#articles">Articles</a><a href="https://whop.com/gridwork-systems/">Templates</a></nav>
+</div></header>
+<article class="post">
+<h1>The 12-month cash flow template every small business needs</h1>
+<p class="sub">Most small businesses don&#x27;t die from losing money — they die from the gap between doing the work and getting paid. The spreadsheet that shows that gap coming, a year in advance.</p>
+<p class="meta">Gridwork Systems &middot; <time>Nov 2026</time></p>
+<p><em>Most small businesses don't die from losing money. They die from the gap between doing the work and getting paid for it. Here's the spreadsheet that shows that gap coming — a year in advance.</em></p>
+<figure><img src="../assets/forecaster_p1.png" alt="Cashflow Forecaster grid — product/renders/Small_Business_Cashflow_Forecaster.pdf" loading="lazy"><figcaption>Cashflow Forecaster grid — product/renders/Small_Business_Cashflow_Forecaster.pdf</figcaption></figure>
+<h2>Your profit and loss statement is lying to you</h2>
+<p>Not on purpose. The P&amp;L answers the question "is this business profitable?", which sounds like the question you care about. It isn't.</p>
+<p>The question that actually decides whether you make rent is: <strong>"can I pay what's due in March, in March?"</strong></p>
+<p>Those are different questions because of timing. You buy materials in January. You invoice in February, on 30-day terms. The client pays in March, sometimes April. On paper — P&amp;L paper — everything is fine in January. In your bank account, January is the month you're $4,000 short.</p>
+<p>Contractors know this pain best: money goes out for months before it comes in. Agencies feel it every time a retainer pays net-30. Retail feels it seasonally. The pattern is universal, and the P&amp;L is structurally blind to it.</p>
+<h2>What a 12-month cashflow forecast actually does</h2>
+<p>A cashflow forecast is embarrassingly simple, which is why it's strange that most small businesses don't keep one. It's a grid:</p>
+<ul>
+<li><strong>Months across the top</strong>, 12 of them, starting now.</li>
+<li><strong>Money in</strong>, by category, per month.</li>
+<li><strong>Money out</strong>, by category, per month.</li>
+<li><strong>The only row that matters: projected ending balance</strong> — your starting cash, plus each month's in-minus-out, stacked forward.</li>
+</ul>
+<p>That last row is the alarm. When a month's balance dips below zero — or below whatever buffer lets you sleep — the cell turns red. Not in that month. <strong>Now, twelve months early</strong>, while there's still time to do something about it.</p>
+<figure><img src="../assets/forecaster_p1.png" alt="Dashboard/chart view — product/renders/Small_Business_Cashflow_Forecaster.pdf" loading="lazy"><figcaption>Dashboard/chart view — product/renders/Small_Business_Cashflow_Forecaster.pdf</figcaption></figure>
+<h2>Build one yourself in ten minutes</h2>
+<p>If you want to appreciate what the template does, build the skeleton once:</p>
+<p>1. New sheet. Row 1: your starting cash balance. Row 2: twelve month labels starting this month (`=EDATE(starting_month, 0)`, `=EDATE(…, 1)`, …).</p>
+<p>2. A dozen rows for income categories; a dozen-plus for expenses. Leave blanks you don't need.</p>
+<p>3. Totals: `=SUM()` down each month's column for income, then expenses.</p>
+<p>4. Net row: income total minus expense total.</p>
+<p>5. Ending balance row: first month is `=starting_cash + net_1`. Every month after: `=previous_balance + net_this_month`.</p>
+<p>6. Select the ending balance row → Conditional Formatting → "less than 0" → red fill. That's the alarm.</p>
+<p>That's the whole machine. Six steps, and you've out-planned most businesses your size.</p>
+<h2>The three ways forecasts lie (and the fixes)</h2>
+<p><strong>Mistake 1: forgetting tax.</strong> The most common way a forecast deceives its owner. Set aside a real percentage as an expense line every month — VAT/GST/sales tax doesn't care that you're forecasting.</p>
+<p><strong>Mistake 2: best-case income.</strong> People forecast what they hope will happen. Forecast what's <em>contracted or near-certain</em> for month 1–3, and a conservative case beyond that. If the conservative case never goes red, your downside is covered — then upside is just upside.</p>
+<p><strong>Mistake 3: entering it once.</strong> A forecast from three months ago is a random number generator with formatting. The fix is boring and effective: 15 minutes on the first of every month, on a calendar reminder. Replace last month's guesses with what actually happened, nudge the next 11, read the red row, close the file.</p>
+<h2>What you get from those 15 minutes a month</h2>
+<ul>
+<li><strong>Chase invoices before the crunch</strong>, not after. If March is red, February's overdue list is where you go.</li>
+<li><strong>Time your spending.</strong> That equipment purchase, that hire, that marketing push — the ending-balance row tells you which month can actually carry it.</li>
+<li><strong>Negotiate from strength.</strong> Knowing you have a cash trough coming is leverage with suppliers (shift terms) and clients (deposit up front). Not knowing is what forces panicked discounts.</li>
+<li><strong>Sleep.</strong> This is the underrated one. The background hum of "are we okay?" has an answer now, in writing.</li>
+</ul>
+<h2>The shortcut</h2>
+<p>Everything above — the categories, the formulas, the red-flag formatting, a chart, and a plain-English guide — is in the <strong>12-Month Cashflow Forecaster</strong>, which you can <a href="https://whop.com/gridwork-systems/">download free here</a>. Enter your numbers, and it works.</p>
+<p>When you're ready for the same numbers to run your whole operation — invoicing with overdue tracking, expense log, quote calculator, printable client invoices, and the forecast pulling your actuals in automatically — that's the <strong>Small Business Command Center</strong> ($49, one-time, no subscription), on the same page.</p>
+<p>Either way: build the grid, keep the 15-minute habit, and stop finding out about cash problems in the month they happen.</p>
+<p>---</p>
+<p><em>The templates work in Excel and Google Sheets. This is planning assistance, not financial advice.</em></p>
+</article>
+<footer class="site"><div class="wrap">Gridwork Systems &middot; Spreadsheet systems for small businesses &middot; <a href="https://whop.com/gridwork-systems/">whop.com/gridwork-systems</a></div></footer>
+</body></html>
