@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Build a job cost sheet in Excel that flags its own overruns (Free Excel Template): Gridwork Systems</title>
+<meta name="description" content="A build-along tutorial for Excel and Google Sheets: three cost blocks with guarded formulas, estimated against actual, a variance cell that turns red above 10%, and a margin check. Every formula recalculated. Free Excel and Google Sheets templates from Gridwork Systems.">
+<link rel="canonical" href="https://gridworksystems.site/articles/build-a-job-cost-sheet-in-excel">
+<meta property="og:site_name" content="Gridwork Systems">
+<meta property="og:title" content="Build a job cost sheet in Excel that flags its own overruns (Free Excel Template): Gridwork Systems">
+<meta property="og:description" content="A build-along tutorial for Excel and Google Sheets: three cost blocks with guarded formulas, estimated against actual, a variance cell that turns red above 10%, and a margin check. Every formula recalculated. Free Excel and Google Sheets templates from Gridwork Systems.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://gridworksystems.site/assets/command_center_p1.png">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Build a job cost sheet in Excel that flags its own overruns","description":"A build-along tutorial for Excel and Google Sheets: three cost blocks with guarded formulas, estimated against actual, a variance cell that turns red above 10%, and a margin check. Every formula recalculated.","author":{"@type":"Organization","name":"Gridwork Systems"},"datePublished":"2026-11-10","mainEntityOfPage":"https://gridworksystems.site/articles/build-a-job-cost-sheet-in-excel.html"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Guides","item":"https://gridworksystems.site/#articles"},{"@type":"ListItem","position":2,"name":"Build a job cost sheet in Excel that flags its own overruns","item":"https://gridworksystems.site/articles/build-a-job-cost-sheet-in-excel.html"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8VLJXX1RT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-J8VLJXX1RT');</script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="annc sans"><a href="https://whop.com/gridwork-systems/">First 10 buyers: Command Center under $29 with code <b>FIRST10</b> · or 50% off anything with <b>LAUNCH50</b> &middot; free 12-month cashflow forecaster included with every guide &rarr;</a></div>
+<header class="site"><div class="wrap row">
+<a class="brand sans" href="../index.html"><span class="mark"><i></i><i></i><i></i><i></i></span><b>Grid<span>work</span> Systems</b></a>
+<nav><a href="../index.html#articles">Guides</a><a href="../index.html#templates">Templates</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="https://whop.com/gridwork-systems/">Store ↗</a></nav>
+</div></header>
+<div class="postwrap">
+<article class="post">
+<div class="crumbs sans"><a href="../index.html">Guides</a> &rsaquo; <a href="../index.html#articles">Pricing &amp; Job Costing</a></div>
+<h1>Build a job cost sheet in Excel that flags its own overruns</h1>
+<p class="sub">A build-along tutorial for Excel and Google Sheets: three cost blocks with guarded formulas, estimated against actual, a variance cell that turns red above 10%, and a margin check. Every formula recalculated.</p>
+<div class="metaline"><span class="cat">Pricing &amp; Job Costing</span><span>7 min read</span><span>Gridwork Systems &middot; Nov 2026</span></div>
+<div class="tldr"><b>The gist</b>A build-along tutorial for Excel and Google Sheets: three cost blocks with guarded formulas, estimated against actual, a variance cell that turns red above 10%, and a margin check. Every formula recalculated.</div>
+<p>Jobs rarely fail on one big mistake. They drift: four extra hours here, a rental nobody budgeted there, and the margin you quoted quietly disappears. A one-page estimated-vs-actual cost sheet catches the drift while you can still do something about it. This tutorial builds one from a blank sheet in about ten minutes, in either Excel or Google Sheets — the formulas are identical in both. Where the menus differ, I'll say so.</p>
+<p>The finished version is free at the end if you'd rather skip the typing. But building it once teaches you the layout, and the layout is the part worth knowing.</p>
+<h2 id="s1">Step 1: The skeleton</h2>
+<figure class="photo"><img src="../assets/photos/desk_calc.jpg" alt="The monthly ritual: what came in, what went out, what&#x27;s left." loading="lazy"><figcaption>The monthly ritual: what came in, what went out, what&#x27;s left.</figcaption></figure>
+<p>Create one tab named <strong>Job Cost Sheet</strong>. Set column A wide (about 46 characters) and columns B to F to about 15–16. This is the layout the whole article uses, so keep the row numbers as you go:</p>
+<table><tbody>
+<tr><td>Rows</td><td>What lives there</td></tr>
+</tbody></table>
+<table><thead><tr><th>---</th><th>---</th></tr></thead><tbody>
+<tr><td>4–7</td><td>Job details: job name, client, trade, quote price (labels in A, entries in B; <strong>B7 = quote price</strong>)</td></tr>
+<tr><td>9–21</td><td>LABOR block</td></tr>
+<tr><td>24–36</td><td>MATERIALS block</td></tr>
+<tr><td>39–47</td><td>SUBCONTRACTORS AND OTHER DIRECT COSTS block</td></tr>
+<tr><td>50–60</td><td>SUMMARY</td></tr>
+</tbody></table>
+<p>Now the convention that makes the sheet usable months later: <strong>every yellow cell is yours to type in; every grey cell calculates.</strong> Fill B4:B7 with a light yellow, and hold off on everything else — you'll colour as you build. Put your quote price in B7; everything at the bottom reads from it.</p>
+<h2 id="s2">Step 2: The labor block</h2>
+<figure class="photo"><img src="../assets/photos/cafe_work.jpg" alt="Plenty of small businesses run from a table and a laptop: the books should be that portable too." loading="lazy"><figcaption>Plenty of small businesses run from a table and a laptop: the books should be that portable too.</figcaption></figure>
+<p>Row 9 is the heading <strong>1. LABOR - hours x loaded rate</strong>. Row 10 holds the column headers, dark fill, white text: <code>Task | Est. hours | Actual hours | Loaded rate / hour | Est. cost | Actual cost</code> in A to F. Rows 11–20 are ten task lines (you'll rarely need all ten; the spares matter, as you'll see). Row 21 is the subtotal.</p>
+<p>Type task names in A11:A20, hours in B and C, and the loaded rate in D. "Loaded" means what an hour really costs you: wage plus taxes, insurance and burden. If you're unsure, take-home wage × 1.3 is a workable approximation — an hour billed at the take-home rate alone silently underprices every job on the sheet. Name the tasks the way the work actually unfolds (preparation, main work, finishing, clean-up), because "where did the hours go?" is the question this block exists to answer. Colour A11:D20 yellow.</p>
+<p>The cost columns are formulas. In E11:</p>
+<pre><code>=IF(OR(B11=&quot;&quot;,D11=&quot;&quot;),0,ROUND(B11*D11,2))</code></pre>
+<p>In F11:</p>
+<pre><code>=IF(OR(C11=&quot;&quot;,D11=&quot;&quot;),0,ROUND(C11*D11,2))</code></pre>
+<p>Fill both down to row 20. The <code>IF(OR(...))</code> wrapper is what makes the spare rows safe: an unfinished line shows 0 instead of an error or a stray number. The subtotal in row 21:</p>
+<pre><code>E21:  =SUM(E11:E20)
+F21:  =SUM(F11:F20)</code></pre>
+<h2 id="s3">Step 3: The materials block</h2>
+<div class="cta-inline"><b class="big">Want it already built?</b><p>The finished sheet with the formatting, the spare rows and both red-flag rules: free, no signup.</p><a class="buy" href="../../products/job-cost-sheet.html">Get the free sheet &rarr;</a>&nbsp;&nbsp;<a class="buy ghost" href="../../products/contractor-command-center.html">The full Contractor Command Center, $79</a></div>
+<p>Same shape, starting at row 24: heading <strong>2. MATERIALS - quantity x unit cost</strong>, headers in row 25 (<code>Item | Est. qty | Actual qty | Unit cost | Est. cost | Actual cost</code>), ten item lines in rows 26–35, subtotal in row 36. Because the columns line up with the labor block, you can copy your E11 and F11 formulas straight down into E26:F35 — the row references adjust themselves. Then:</p>
+<pre><code>E36:  =SUM(E26:E35)
+F36:  =SUM(F26:F35)</code></pre>
+<h2 id="s4">Step 4: Subcontractors and other direct costs</h2>
+<p>This block has no rate math — you type amounts directly. Heading <strong>3. SUBCONTRACTORS AND OTHER DIRECT COSTS</strong> at row 39, headers at row 40 (<code>Description | Est. amount | Actual amount</code>), six lines in rows 41–46 with yellow cells in A, B and C. Typical lines: subcontractors, permits, equipment rental, delivery and fuel for this job, disposal. These are the costs that get missed most often, which is exactly why they get their own block. Subtotal at row 47:</p>
+<pre><code>B47:  =SUM(B41:B46)
+C47:  =SUM(C41:C46)</code></pre>
+<h2 id="s5">Step 5: The summary</h2>
+<p>Row 50 is the heading <strong>SUMMARY</strong>, with <code>Estimated</code> in B51 and <code>Actual</code> in C51. Then nine rows — grey calculated cells unless noted:</p>
+<pre><code>B52  Direct cost        =E21+E36+B47
+C52                     =F21+F36+C47
+B53  Overhead %         15%  (yellow input — see below)
+B54  Overhead           =ROUND(B52*B53,2)
+C54                     =ROUND(C52*B53,2)
+B55  TOTAL JOB COST     =B52+B54
+C55                     =C52+C54
+C56  Variance           =C55-B55
+C57  Variance %         =IF(B55=0,&quot;&quot;,C56/B55)
+B58  Quote price        =B7
+B59  Margin             =B58-B55
+C59                     =B58-C55
+B60  Margin %           =IF(B58=0,&quot;&quot;,B59/B58)
+C60                     =IF(B58=0,&quot;&quot;,C59/B58)</code></pre>
+<p>B53 is the one input here: overhead percentage — office, insurance, tools, vehicle costs that no single job bills for. Type 15% as a yellow cell; adjust to your own number once you've seen a few jobs through. Format rows 57 and 60 as percentages (Excel: right-click, Format Cells, Percentage; Google Sheets: <strong>Format &gt; Number &gt; Percent</strong>) and everything money-shaped as currency or two-decimal number. The <code>IF(...=0,"",...)</code> guards stop divide-by-zero errors on a sheet that hasn't been filled in yet.</p>
+<h2 id="s6">Step 6: The red flag</h2>
+<p>This is the rule the whole sheet exists for: <strong>variance % turns red when actual cost is more than 10% over estimate.</strong></p>
+<ul>
+<li><strong>Excel:</strong> select C57, then <strong>Home &gt; Conditional Formatting &gt; New Rule &gt; Use a formula to determine which cells to format</strong>, enter <code>=C57&gt;0.1</code>, and set a red fill with dark red bold text.</li>
+<li><strong>Google Sheets:</strong> select C57, then <strong>Format &gt; Conditional formatting &gt; Custom formula is</strong>, same formula, same formatting.</li>
+</ul>
+<p>Add a second rule the same way on C60 — <code>=C60&lt;B60</code> — so the actual margin % also turns red when it comes in below the estimated one. Two rules, and the sheet tells you when a job has stopped going to plan instead of waiting for you to notice.</p>
+<p>While you're tidying up: freeze the top three rows so the job name stays visible as you scroll (Excel: <strong>View &gt; Freeze Panes</strong>; Google Sheets: <strong>View &gt; Freeze</strong>), and check your regional settings if you're used to semicolon formula separators. This article shows commas; Excel uses semicolons in locales where the comma is the decimal mark, and Google Sheets follows its spreadsheet locale (<strong>File &gt; Settings &gt; Locale</strong>) in the same way.</p>
+<h2 id="s7">A worked example (illustrative numbers)</h2>
+<p>To see it behave, type these into a fresh copy. They're invented numbers chosen to show what a warning looks like — not a real job.</p>
+<p>Quote price (B7): <strong>7,500</strong>. Overhead %: <strong>15%</strong>. Labor: Prep and layout 6 est / 8 actual hrs at 45; Main work 24/30 at 45; Trim and finish 4/5 at 45; Clean-up 2/2 at 35. Materials: main material 40/44 units at 18; fixtures 10/10 at 65; fasteners 1/1.5 at 120; disposal 1/1 at 300. Other: subcontractor 800 est / 850 actual; permit 150/150; equipment rental 0 est / 120 actual — the classic unbudgeted line.</p>
+<p>The sheet computes: labor 1,600 est / 2,005 actual; materials 1,790 / 1,922; other 950 / 1,120. Direct cost 4,340 / 5,047. Overhead 651.00 / 757.05. Total job cost <strong>4,991.00 est / 5,804.05 actual</strong>. Variance <strong>+813.05</strong>, variance % <strong>+16.3%</strong> — red, because it's over 10%. Margin falls from 2,509 (33.5%) to 1,695.95 (22.6%), and the margin rule fires too. Ten minutes of formulas just told you your quote was 813 thin and precisely where: 8 labor hours and an unbudgeted rental.</p>
+<h2 id="s8">The habit that makes it work</h2>
+<p>None of this helps if the actual column gets filled in from memory a month later. The single working habit: <strong>log costs the day they happen.</strong> Hours at the end of each day, materials when the receipt comes in, subs when they invoice. The estimate column you fill once, before the job starts; the actual column is a living document. Daily entries take two minutes and make the red flag appear in week one, when you can still re-price the bathroom phase — not in week six, when you can't.</p>
+<p>One job per copy of the sheet: save a copy per job and they become a record of where your estimates run thin.</p>
+<p>If you'd like the finished version, free, no signup — with the formatting, spare rows and both red-flag rules already in place — it's here: <strong><a href="https://gridworksystems.site/products/job-cost-sheet.html">gridworksystems.site/products/job-cost-sheet.html</a></strong></p>
+<p><em>This guide was drafted with AI assistance for Gridwork Systems. Every figure in it was recalculated in the sheet it describes.</em></p>
+<div class="related">
+<h4>Keep reading</h4>
+<a href="../articles/cost-a-job-before-you-quote.html">Cost the job before you quote it, then find out if you were right</a><a href="../articles/job-costing-for-contractors-spreadsheet.html">Job costing for contractors: the spreadsheet method</a><a href="../articles/construction-job-costing-template-free.html">Free construction job costing template: the 4-bucket method</a>
+</div>
+<div class="cta sans">
+<b>Get the system these guides are written about</b>
+<p>Invoices, expenses, clients, quotes and a 12-month cashflow forecast — linked in one workbook. One-time price, lifetime updates.</p>
+<a class="buy" href="https://whop.com/gridwork-systems/products/small-business-command-center-61/">Buy the Command Center — $49 &rarr;</a>
+&nbsp;&nbsp;<a class="buy ghost" href="../products/cashflow-forecaster.html">Start with the free forecaster</a>
+</div>
+</article>
+<aside class="rail"><div class="rtitle">Our template systems</div><div class="rprod"><a href="../products/command-center.html"><img src="../assets/command_m.png" alt="Small Business Command Center" loading="lazy"><div class="rb"><span class="rp">$49 one-time</span><h4>Small Business Command Center</h4><span class="rd">The flagship: everything linked</span></div></a><div class="buyrow"><a class="buy small" href="https://whop.com/gridwork-systems/products/small-business-command-center-61/">Buy $49 &rarr;</a><a class="sans" href="../products/command-center.html" style="font-size:.8rem;color:#64748b;align-self:center">details</a></div></div><div class="rprod"><a href="../products/invoice-tracker.html"><img src="../assets/invoices_m.png" alt="Invoice &amp; Payment Tracker" loading="lazy"><div class="rb"><span class="rp">$19 one-time</span><h4>Invoice &amp; Payment Tracker</h4><span class="rd">Know who owes you, how late</span></div></a><div class="buyrow"><a class="buy small" href="https://whop.com/gridwork-systems/products/small-business-invoice-payment-tracker/">Buy $19 &rarr;</a><a class="sans" href="../products/invoice-tracker.html" style="font-size:.8rem;color:#64748b;align-self:center">details</a></div></div><div class="rprod"><a href="../products/everything-bundle.html"><img src="../assets/bundle_m.png" alt="The Everything Bundle" loading="lazy"><div class="rb"><span class="rp">$79 one-time · best value</span><h4>The Everything Bundle</h4><span class="rd">Every system + future releases</span></div></a><div class="buyrow"><a class="buy small" href="https://whop.com/gridwork-systems/products/small-business-spreadsheet-everything-bundle/">Buy $79 &rarr;</a><a class="sans" href="../products/everything-bundle.html" style="font-size:.8rem;color:#64748b;align-self:center">details</a></div></div><div class="rtitle">Free starter</div><div class="rprod"><a href="../products/cashflow-forecaster.html"><img src="../assets/forecaster_m.png" alt="Free Cashflow Forecaster" loading="lazy"><div class="rb"><span class="rp" style="color:#059669">FREE</span><h4>12-Month Cashflow Forecaster</h4><span class="rd">See your tight months a year early</span></div></a><div class="buyrow"><a class="buy small" style="background:linear-gradient(92deg,#059669,#10b981)" href="../products/cashflow-forecaster.html">Get it free &rarr;</a></div></div></aside>
+</div>
+<footer class="site"><div class="wrap">
+<div class="cols">
+<div><h5>Gridwork Systems</h5><p>Cashflow forecasting, invoice tracking and bookkeeping spreadsheets for small businesses.</p></div>
+<div><h5>Popular guides</h5><a href="../articles/cost-a-job-before-you-quote.html">Cost the job before you quote it, then find out if you were right</a></div>
+<div><h5>More guides</h5></div>
+<div><h5>Site</h5><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../credits.html">Photo credits</a><a href="https://whop.com/gridwork-systems/">Template shop ↗</a></div>
+</div>
+<div class="fine">© 2026 Gridwork Systems &middot; <a href="https://whop.com/gridwork-systems/">whop.com/gridwork-systems</a> &middot; Works in Excel and Google Sheets &middot; Photos: Creative Commons (see credits)</div>
+</div></footer>
+</body></html>
