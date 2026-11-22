@@ -45,4 +45,47 @@
 </div>
 <div class="fine">© 2026 Gridwork Systems &middot; <a href="https://whop.com/gridwork-systems/">whop.com/gridwork-systems</a> &middot; Works in Excel and Google Sheets &middot; Photos: Creative Commons (see credits)</div>
 </div></footer>
+<script id="pv-beacon">
+function pvKey(pathname, referrer, ownHost){
+  function hostIs(h, base){ return h === base || h.slice(-(base.length + 1)) === '.' + base; }
+  var seg = 'other';
+  var p = String(pathname === undefined || pathname === null ? '' : pathname);
+  if (p === '/' || p === '') { seg = 'home'; }
+  else {
+    var first = (p.split('/')[1] || '').toLowerCase().replace(/\.html?$/, '');
+    first = first.replace(/[^a-z0-9-]/g, '').slice(0, 20);
+    if (first === 'home' || first === 'articles' || first === 'products' || first === 'tools'
+        || first === 'about' || first === 'faq' || first === 'credits') { seg = first; }
+  }
+  var src = 'direct';
+  var r = String(referrer === undefined || referrer === null ? '' : referrer);
+  if (r !== '') {
+    var h = '';
+    try { h = new URL(r).hostname.toLowerCase(); } catch (e) { h = ''; }
+    if (h !== '' && h === String(ownHost || '').toLowerCase()) { src = 'internal'; }
+    else if (h.indexOf('google.') !== -1) { src = 'google'; }
+    else if (h.indexOf('bing.com') !== -1) { src = 'bing'; }
+    else if (h.indexOf('duckduckgo') !== -1) { src = 'duckduckgo'; }
+    else if (h.indexOf('yahoo') !== -1) { src = 'yahoo'; }
+    else if (hostIs(h, 'youtube.com') || hostIs(h, 'youtu.be')) { src = 'youtube'; }
+    else if (h.indexOf('pinterest') !== -1) { src = 'pinterest'; }
+    else if (h.indexOf('quora') !== -1) { src = 'quora'; }
+    else if (h.indexOf('reddit') !== -1) { src = 'reddit'; }
+    else if (h.indexOf('facebook.com') !== -1 || h.indexOf('fb.') === 0) { src = 'facebook'; }
+    else if (h.indexOf('linkedin') !== -1) { src = 'linkedin'; }
+    else if (hostIs(h, 'twitter.com') || hostIs(h, 'x.com')) { src = 'x'; }
+    else if (h.indexOf('etsy.com') !== -1) { src = 'etsy'; }
+    else { src = 'other'; }
+  }
+  return 'pv-' + seg + '-' + src;
+}
+(function(){
+  if (typeof document === 'undefined') return; // Node (tests) uses only the pure function above
+  try {
+    var k = pvKey(location.pathname, document.referrer, location.hostname);
+    fetch('https://abacus.jasoncameron.dev/hit/gridwork/' + k, {method: 'GET', keepalive: true}).catch(function(){});
+  } catch (e) {}
+})();
+</script>
+
 </body></html>
