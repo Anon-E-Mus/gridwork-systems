@@ -146,11 +146,11 @@ function pvKey(pathname, referrer, ownHost){
   return 'pv-' + seg + '-' + src;
 }
 (function(){
-  // Count only the live site: a copy opened from disk (a local test) or any other host is not a visitor.
-  // On Nov 23 three local file opens were the only "views" the counters held.
-  if (location.hostname !== 'gridworksystems.site' && location.hostname !== 'www.gridworksystems.site') return;
   if (typeof document === 'undefined') return; // Node (tests) uses only the pure function above
   try {
+    // Count only the live site: a copy opened from disk (a local test) or any other host is not a
+    // visitor. On Nov 23 three local file opens were the only "views" the counters held.
+    if (location.hostname !== 'gridworksystems.site' && location.hostname !== 'www.gridworksystems.site') return;
     var k = pvKey(location.pathname, document.referrer, location.hostname);
     fetch('https://abacus.jasoncameron.dev/hit/gridwork/' + k, {method: 'GET', keepalive: true}).catch(function(){});
   } catch (e) {}
