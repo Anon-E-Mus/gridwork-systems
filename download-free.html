@@ -23,14 +23,25 @@ setTimeout(function(){window.location.href='/Small_Business_Cashflow_Forecaster.
 <div style="background:#1E293B;border:1px solid #374151;border-radius:16px;padding:2rem;margin-top:2.5rem;text-align:left">
   <div style="color:#F9FAFB;font-weight:800;font-size:1.3rem;margin-bottom:.5rem">Free Spreadsheet Health Check</div>
   <div style="color:#94A3B8;font-size:.95rem;margin-bottom:1.2rem">Tell us what's wrong with your spreadsheet. We'll send a free 3-point assessment within 24 hours. No strings.</div>
-  <form action="https://formsubmit.co/gridwork.systems.inc@gmail.com" method="POST" style="display:grid;gap:.8rem">
+  <div id="sent" style="display:none;background:#064E3B;border:1px solid #0D9488;border-radius:12px;padding:1.1rem 1.2rem;margin-bottom:1.2rem;color:#D1FAE5;font-size:1rem;line-height:1.5">
+    <b style="color:#fff;font-size:1.1rem">Thanks — we got your message.</b><br>
+    Your free 3-point assessment will arrive within 24 hours. If it hasn't shown up by then, check your spam folder.
+  </div>
+  <form id="healthcheck" action="https://formsubmit.co/91383ec2d6464a1d2121d5f374124a8b" method="POST" style="display:grid;gap:.8rem">
     <input type="hidden" name="_subject" value="Health Check Request from download page">
     <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_next" value="https://gridworksystems.site/download-free.html?sent=1">
     <input type="email" name="email" placeholder="Your email" required style="background:#0F172A;color:#E5E7EB;border:1px solid #475569;border-radius:8px;padding:.9rem;font-size:1rem">
     <textarea name="problem" placeholder="What's your spreadsheet doing (or not doing)?" rows="3" required style="background:#0F172A;color:#E5E7EB;border:1px solid #475569;border-radius:8px;padding:.9rem;font-size:1rem;resize:vertical"></textarea>
     <button type="submit" style="background:#0D9488;color:#fff;font-weight:700;font-size:1rem;padding:.9rem;border-radius:8px;border:none;cursor:pointer">Send My Free Assessment</button>
   </form>
+  <script>
+  if (location.search.indexOf('sent=1') !== -1) {
+    document.getElementById('sent').style.display = 'block';
+    document.getElementById('healthcheck').style.display = 'none';
+  }
+  </script>
   <div style="color:#64748B;font-size:.8rem;margin-top:.8rem">We reply within 24 hours. No spam, no selling your email, unsubscribe anytime.</div>
 </div>
 </div></body></html>
