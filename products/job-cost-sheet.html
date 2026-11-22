@@ -35,14 +35,11 @@
 <div style="margin:1.2rem 0 1.6rem"><a class="buy" href="/Free_One_Job_Cost_Sheet.xlsx" download onclick="try{fetch('https://abacus.jasoncameron.dev/hit/gridwork/go-costsheet-dl').catch(function(){})}catch(e){}">Download the sheet (Excel)</a>
 <span class="sans" style="display:inline-block;margin-left:.8rem;font-size:.85rem;color:#94a3b8">opens in Excel and Google Sheets</span></div>
 <div class="specbox"><h3>What's in it</h3><ul><li>Labor: hours x loaded rate, task by task</li><li>Materials: quantity x unit cost, with room for waste</li><li>Subcontractors and other direct costs</li><li>Overhead as a percentage of direct cost</li><li>Estimated and actual side by side, variance flagged red above 10%</li><li>Quote price, margin and margin % - planned against actual</li></ul></div>
-<div class="specbox"><h3>How to use it</h3><ul>
-<li>Before you quote: fill the yellow cells on the estimate side - hours per task, quantities, unit costs, your overhead %, the quote price</li>
-<li>While the job runs: write what it actually costs in the actual columns, the day it happens</li>
-<li>Afterwards: read the variance. More than 10% over the estimate is flagged red - that is the line to price differently next time</li></ul></div>
+<div class="specbox"><h3>How to use it</h3><ul><li>Before you quote: fill the yellow cells on the estimate side - hours per task, quantities, unit costs, your overhead %, the quote price</li><li>While the job runs: write what it actually costs in the actual columns, the day it happens</li><li>Afterwards: read the variance. More than 10% over the estimate is flagged red - that is the line to price differently next time</li></ul></div>
 <div class="specbox"><h3>Good to know</h3><ul><li>Free, no signup, no email needed to download it</li><li>Works in Excel and Google Sheets; every formula is visible</li><li>The How to use tab takes two minutes to read</li><li>General by default: rename the task and material lines for your trade</li></ul></div>
-<div class="specbox" id="trade-request"><h3>Want it set up for your trade?</h3>
+<div class="specbox" id="set-up-request"><h3>Want it set up for your trade?</h3>
 <div id="cs-sent" style="display:none;background:#ecfdf5;border:1px solid #6ee7b7;border-radius:10px;padding:14px 16px;color:#065f46;font-size:.95rem">
-<b>Got it.</b> You'll get your copy within 24 hours, with the labor and material lines named for your trade.</div>
+<b>Got it.</b> You&#x27;ll get your copy within 24 hours, with the labor and material lines named for your trade.</div>
 <form id="cs-form" action="https://formsubmit.co/91383ec2d6464a1d2121d5f374124a8b" method="POST" style="display:grid;gap:.7rem;max-width:520px">
 <input type="hidden" name="_subject" value="Cost sheet for a trade">
 <input type="hidden" name="_captcha" value="false">
@@ -54,7 +51,8 @@
 </form>
 <p style="font-size:.85rem;color:#64748b">Free. We rename the task and material lines for your trade and send it back. That is the only email you get unless you reply.</p>
 <script>
-if (location.search.indexOf('sent=1') !== -1) { document.getElementById('cs-sent').style.display = 'block'; document.getElementById('cs-form').style.display = 'none'; document.getElementById('trade-request').scrollIntoView(); }
+if (location.search.indexOf('sent=1') !== -1) { document.getElementById('cs-sent').style.display = 'block'; document.getElementById('cs-form').style.display = 'none'; document.getElementById('set-up-request').scrollIntoView(); }
+try{fetch('https://abacus.jasoncameron.dev/hit/gridwork/go-costsheet').catch(function(){})}catch(e){}
 </script>
 </div>
 <p class="sans" style="font-size:.9rem;color:#64748b">Run a crew and want the same method across every job? The <a href="contractor-command-center.html">Contractor Command Center</a> links this to estimates, draws and payroll.</p>
