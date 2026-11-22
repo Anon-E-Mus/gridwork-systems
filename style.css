@@ -117,7 +117,7 @@ article.post .sub{font-size:1.13rem;color:var(--muted);font-style:italic;margin-
 article.post h2{font-size:1.5rem;color:var(--navy);margin:2.5rem 0 .8rem;letter-spacing:-.01em}
 article.post ul{margin:0 0 1.3rem 1.4rem}
 article.post li{margin-bottom:.4rem}
-article.post code{background:var(--light);border:1px solid var(--line);padding:.05rem .4rem;border-radius:5px;font-size:.88em;font-family:Consolas,monospace}
+article.post code{background:var(--light);border:1px solid var(--line);padding:.05rem .4rem;border-radius:5px;font-size:.88em;font-family:Consolas,monospace}pre{background:var(--light);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font-size:.9rem;line-height:1.6;margin:1.1rem 0}pre code{background:none;border:none;padding:0;font-size:1em;font-weight:400;letter-spacing:0}
 figure{margin:2.2rem 0}
 figure img{width:100%;border:1px solid var(--line);border-radius:10px;box-shadow:0 6px 24px rgba(15,23,42,.07)}
 figure.photo img{border-radius:12px;box-shadow:0 14px 34px rgba(15,23,42,.13)}
