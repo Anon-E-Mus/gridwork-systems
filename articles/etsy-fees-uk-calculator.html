@@ -81,7 +81,210 @@
 <h2 id="s7">The one fee Etsy hands back</h2>
 <p>If you have never opened this tab, you are not alone: Share &amp; Save refunds part of your transaction fee when a buyer arrives through a link you shared yourself. Through 4 January 2027 the holiday boost refunds the full 6.5% — on our example order, £1.92 back for putting your own listing link in your Instagram bio. It is the only fee Etsy actively returns.</p>
 <h2 id="s8">Turning this into a UK Etsy fee calculator</h2>
-<p>Etsy does not give sellers a per-order fee calculator, UK or otherwise. The fee pages give you rates; the maths is yours. Two ways to do it.</p>
+<p>Etsy does not give sellers a per-order fee calculator, UK or otherwise. The fee pages give you rates; the maths is yours. Three ways to get it done, quickest first.</p>
+<p><strong>Use the one below (free, no signup).</strong> It works for UK and US shops. Enter the order and it lists each fee with its arithmetic, using the rates in this article. It counts the regulatory operating fee and the Offsite Ads fee, and shows each line rounded to the penny.</p>
+<style>
+.etsyfc{background:#fff;border:1px solid #e2e8f0;border-left:4px solid #38bdf8;border-radius:0 13px 13px 0;padding:1.4rem 1.5rem;margin:2.2rem 0;font-family:'Segoe UI',system-ui,Arial,sans-serif}
+.etsyfc h3{margin:0 0 .3rem;font-size:1.05rem;color:#0f172a}
+.etsyfc .sub{font-size:.85rem;color:#64748b;margin:0 0 1.1rem}
+.etsyfc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.9rem}
+.etsyfc-grid label{display:grid;gap:.3rem;font-size:.8rem;font-weight:600;color:#0f172a}
+.etsyfc input,.etsyfc select{padding:.55rem .65rem;border:1px solid #cbd5e1;border-radius:8px;font-size:1rem;font-family:inherit;width:100%}
+.etsyfc-btn{background:#0284c7;color:#fff;font-weight:700;padding:.7rem 1.4rem;border-radius:9px;border:none;cursor:pointer;font-size:1rem;margin-top:1.1rem}
+.etsyfc-btn:hover{background:#0369a1}
+.etsyfc-out{margin-top:1.4rem;overflow-x:auto}
+.etsyfc-out table{width:100%;border-collapse:collapse;font-size:.9rem;margin:0 0 1.1rem}
+.etsyfc-out th{background:#f1f5f9;color:#0f172a;font-weight:600;text-align:left;padding:.5rem .7rem;border-bottom:1px solid #e2e8f0;vertical-align:top}
+.etsyfc-out td{padding:.5rem .7rem;border-bottom:1px solid #e2e8f0;vertical-align:top}
+.etsyfc-out td.etsyfc-amt{white-space:nowrap;font-weight:700;color:#0f172a;text-align:right}
+.etsyfc-out tr.etsyfc-total td,.etsyfc-out tr.etsyfc-total th{background:#f0f9ff;border-top:2px solid #38bdf8;font-weight:800}
+.etsyfc-out p{margin:0 0 .55rem;font-size:.95rem}
+.etsyfc-notes{font-size:.83rem;color:#475569;border-top:1px dashed #cbd5e1;margin-top:1.2rem;padding-top:1rem}
+.etsyfc-notes p{margin:0 0 .7rem}
+</style>
+<div class="etsyfc" id="etsyfc">
+<h3>Etsy fee calculator</h3>
+<p class="sub">Every fee on its own line, with the arithmetic shown. Runs in your browser; nothing is sent anywhere.</p>
+<form id="etsyfc-form">
+<div class="etsyfc-grid">
+<label>Seller location
+<select id="etsyfc-country">
+<option value="US" selected>United States</option>
+<option value="UK">United Kingdom</option>
+</select></label>
+<label>Item price
+<input id="etsyfc-item" type="number" min="0" step="0.01" inputmode="decimal" value="24.00"></label>
+<label>Shipping the buyer pays
+<input id="etsyfc-shipping" type="number" min="0" step="0.01" inputmode="decimal" value="5.50"></label>
+<label id="etsyfc-tax-row">Sales tax the buyer pays (US)
+<input id="etsyfc-tax" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
+<label>Offsite Ads attribution
+<select id="etsyfc-ads">
+<option value="0" selected>Not attributed</option>
+<option value="15">15% (shop under $10k in 365-day sales)</option>
+<option value="12">12% ($10k or more - mandatory)</option>
+</select></label>
+<label>Cost of materials per unit (optional)
+<input id="etsyfc-materials" type="number" min="0" step="0.01" inputmode="decimal" placeholder="e.g. 8.50"></label>
+</div>
+<button type="submit" class="etsyfc-btn">Calculate fees</button>
+</form>
+<div id="etsyfc-out" class="etsyfc-out" aria-live="polite"></div>
+<p class="sub" style="margin-top:.6rem"><a href="../tools/etsy-fee-calculator.html">Prefer it on its own page? The Etsy fee calculator, bookmarkable.</a></p>
+<div class="etsyfc-notes">
+<p><b>How it is worked out.</b> The transaction fee (6.5%) and, for UK shops, the regulatory operating fee (0.48%) are charged on the item price plus the shipping the buyer pays (gift wrap and personalization would also count, and the listing fee is charged per unit on multi-quantity sales). Payment processing &mdash; 3% + $0.25 (US) or 4% + &pound;0.20 (UK) &mdash; is charged on the order total <em>including</em> any sales tax the buyer paid, because that is the base Etsy uses. Etsy collects and remits US sales tax itself, so the tax is not part of your take-home: take-home is the item price plus shipping minus fees. The Offsite Ads fee is charged on the order amount before the ads fee. Etsy bills each fee separately; this calculator rounds each line to the cent, half up.</p>
+<p><b>No invented precision.</b> Whether an attributed order pays 15% or 12% depends on your shop's sales in any consecutive 365 days ($10,000 threshold) &mdash; the calculator cannot know that, so pick the row that matches your shop. The listing fee is always $0.20 USD; for UK shops the &pound;0.16 shown is an approximation and your bank's conversion rate applies. Etsy caps the Offsite Ads fee at $100 USD per order; for UK shops the cap in pounds depends on the exchange rate, so a very large attributed order may pay slightly less than shown. Etsy Ads (onsite budgets) and any currency-conversion charges are not included.</p>
+<p><b>Fees checked against Etsy's own help pages on 23 November 2026 (2026-11-23):</b>
+<a href="https://help.etsy.com/hc/en-us/articles/360035902374-Etsy-Fee-Basics" rel="nofollow">Etsy Fee Basics</a> (listing $0.20; transaction 6.5%) &middot;
+<a href="https://help.etsy.com/hc/en-us/articles/115015628847-What-are-Payment-Processing-Fees-for-Selling-on-Etsy" rel="nofollow">Payment Processing Fees</a> (US 3% + $0.25; UK 4% + &pound;0.20, on the total including shipping and applicable sales tax) &middot;
+<a href="https://help.etsy.com/hc/en-us/articles/1500011073202-What-is-a-Regulatory-Operating-Fee" rel="nofollow">Regulatory Operating Fee</a> (UK 0.48%; not charged to US sellers) &middot;
+<a href="https://help.etsy.com/hc/en-us/articles/360000338367-How-Etsy-s-Offsite-Ads-Work" rel="nofollow">How Etsy's Offsite Ads Work</a> (15% / 12%, $100 cap) &middot;
+<a href="https://help.etsy.com/hc/en-us/articles/360000343968-How-US-State-Sales-Tax-and-Fees-Applies-to-Etsy-Orders" rel="nofollow">How US State Sales Tax Applies to Etsy Orders</a> (Etsy collects and remits US sales tax). All fetched 23 November 2026 (2026-11-23).</p>
+</div>
+</div>
+<script id="etsy-fee-calc">
+// Etsy fee calculator - Gridwork Systems. Vanilla JavaScript, no libraries, no network calls.
+// Rates verified against Etsy's own Help Centre pages on 2026-11-23.
+function etsyfcToCents(v){
+  var n;
+  if (typeof v === 'number') n = v;
+  else n = parseFloat(String(v === undefined || v === null ? '' : v).replace(/[^0-9.-]/g, ''));
+  if (!isFinite(n) || n < 0) return 0;
+  return Math.round(n * 100);
+}
+function etsyfcHalfUp(micro, den){ // (micro/den) cents, rounded half-up to whole cents, exact integer math
+  return Math.floor((2 * micro + den) / (2 * den));
+}
+function etsyfcFmtC(cents, cur){
+  var neg = cents < 0, a = Math.abs(cents);
+  return (neg ? '-' : '') + cur + (a / 100).toFixed(2);
+}
+function etsyfcRaw(micro, den){ // exact decimal string of micro/den cents in currency units
+  var s = (micro / den / 100).toFixed(4);
+  if (s.indexOf('.') !== -1) s = s.replace(/0+$/, '').replace(/\.$/, '');
+  return s;
+}
+function calculateFees(input){
+  input = input || {};
+  var country = (input.country === 'UK' || input.country === 'United Kingdom') ? 'UK' : 'US';
+  var cur = country === 'UK' ? '\u00A3' : '\u0024';
+  var curCode = country === 'UK' ? 'GBP' : 'USD';
+  var itemC = etsyfcToCents(input.item);
+  var shipC = etsyfcToCents(input.shipping);
+  var taxC = country === 'US' ? etsyfcToCents(input.tax) : 0;
+  var baseC = itemC + shipC;   // item + shipping: base for transaction, regulatory, Offsite Ads
+  var orderC = baseC + taxC;   // buyer's total: base for the processing percentage only
+  var adsIn = Number(input.offsiteAds);
+  var adsRate = (adsIn === 15 || adsIn === 12) ? adsIn : 0;
+
+  var listingC = country === 'UK' ? 16 : 20;            // $0.20 USD flat; UK: about 16p converted
+  var tMicro = baseC * 13, tDen = 200;                  // 6.5% = 13/200
+  var transC = etsyfcHalfUp(tMicro, tDen);
+  var pPct = country === 'UK' ? 4 : 3;                  // processing percentage
+  var pFixedC = country === 'UK' ? 20 : 25;             // processing fixed part
+  var pMicro = orderC * pPct, pDen = 100;
+  var procPctC = etsyfcHalfUp(pMicro, pDen);
+  var procC = procPctC + pFixedC;
+  var regC = 0, rMicro = 0, rDen = 625;                 // 0.48% = 3/625, UK only
+  if (country === 'UK') { rMicro = baseC * 3; regC = etsyfcHalfUp(rMicro, rDen); }
+  var adsC = 0, aMicro = 0, aDen = 100, capped = false;
+  if (adsRate) { aMicro = baseC * adsRate; adsC = etsyfcHalfUp(aMicro, aDen); }
+  if (adsRate && country === 'US' && adsC > 10000) { adsC = 10000; capped = true; } // $100 USD cap
+
+  var totalC = listingC + transC + procC + regC + adsC;
+  // Etsy calculates, collects and remits US sales tax itself, so the tax is never paid out to the
+  // seller: it counts in the processing base but not in take-home (Etsy Help, "How US State Sales
+  // Tax and Fees Applies to Etsy Orders", read 2026-11-23).
+  var takeC = baseC - totalC;
+  var rate = baseC > 0 ? Math.round(totalC * 10000 / baseC) / 100 : 0;
+  var matRaw = input.materials;
+  var hasMat = matRaw !== undefined && matRaw !== null && String(matRaw).trim() !== '';
+  var matC = hasMat ? etsyfcToCents(matRaw) : 0;
+  var profitC = takeC - matC;
+
+  var money = function(c){ return etsyfcFmtC(c, cur); };
+  var tBase = money(baseC);
+  var lines = [];
+  lines.push({key: 'listing', label: 'Listing fee', amount: listingC / 100,
+    math: country === 'UK'
+      ? '\u00240.20 USD, converted at your bank\u2019s rate (about ' + money(listingC) + ')'
+      : 'flat \u00240.20 per item sold (also charged when a listing publishes or renews)'});
+  lines.push({key: 'transaction', label: 'Transaction fee (6.5%)', amount: transC / 100,
+    math: tBase + ' \u00D7 6.5% = ' + cur + etsyfcRaw(tMicro, tDen) + ', billed ' + money(transC)});
+  lines.push({key: 'processing',
+    label: 'Payment processing (' + pPct + '% + ' + money(pFixedC) + ')', amount: procC / 100,
+    math: money(orderC) + (taxC > 0 ? ' (item + shipping + ' + money(taxC) + ' sales tax)' : '') +
+          ' \u00D7 ' + pPct + '% = ' + cur + etsyfcRaw(pMicro, pDen) + ', billed ' + money(procPctC) +
+          ', plus ' + money(pFixedC) + ' fixed'});
+  if (country === 'UK') {
+    lines.push({key: 'regulatory', label: 'Regulatory operating fee (0.48%, UK only)', amount: regC / 100,
+      math: tBase + ' \u00D7 0.48% = ' + cur + etsyfcRaw(rMicro, rDen) + ', billed ' + money(regC)});
+  }
+  if (adsRate) {
+    lines.push({key: 'offsite', label: 'Offsite Ads fee (' + adsRate + '%)', amount: adsC / 100,
+      math: tBase + ' \u00D7 ' + adsRate + '% = ' + cur + etsyfcRaw(aMicro, aDen) + ', billed ' + money(adsC) +
+            (capped ? ' (capped at \u0024100 USD per order)' : '')});
+  }
+  return {
+    country: country, currency: cur, currencyCode: curCode,
+    item: itemC / 100, shipping: shipC / 100, tax: taxC / 100, orderTotal: orderC / 100,
+    listing: listingC / 100, transaction: transC / 100, processing: procC / 100,
+    regulatory: regC / 100, offsite: adsC / 100, offsiteRate: adsRate, offsiteCapped: capped,
+    totalFees: totalC / 100, takeHome: takeC / 100, effectiveRate: rate,
+    materials: hasMat ? matC / 100 : null, profit: hasMat ? profitC / 100 : null,
+    lines: lines
+  };
+}
+(function(){
+  if (typeof document === 'undefined') return; // Node (tests) uses only the pure function above
+  var form = document.getElementById('etsyfc-form');
+  if (!form || form.getAttribute('data-bound')) return;
+  form.setAttribute('data-bound', '1');
+  var countryEl = document.getElementById('etsyfc-country');
+  var taxRow = document.getElementById('etsyfc-tax-row');
+  var out = document.getElementById('etsyfc-out');
+  function val(id){ var el = document.getElementById(id); return el ? el.value : ''; }
+  function syncTax(){ if (taxRow) taxRow.style.display = (countryEl && countryEl.value === 'UK') ? 'none' : ''; }
+  function render(){
+    var res;
+    try { res = calculateFees({
+      country: countryEl ? countryEl.value : 'US',
+      item: val('etsyfc-item'), shipping: val('etsyfc-shipping'), tax: val('etsyfc-tax'),
+      offsiteAds: val('etsyfc-ads'), materials: val('etsyfc-materials')
+    }); } catch (e) { return; }
+    var h = '<table><tbody>';
+    for (var i = 0; i < res.lines.length; i++) {
+      var L = res.lines[i];
+      h += '<tr><th scope="row">' + L.label + '</th><td>' + L.math + '</td>' +
+           '<td class="etsyfc-amt">' + res.currency + L.amount.toFixed(2) + '</td></tr>';
+    }
+    h += '<tr class="etsyfc-total"><th scope="row">Total fees</th><td></td>' +
+         '<td class="etsyfc-amt">' + etsyfcFmtC(Math.round(res.totalFees * 100), res.currency) + '</td></tr>';
+    h += '</tbody></table>';
+    h += '<p><b>Order total (what the buyer paid):</b> ' + etsyfcFmtC(Math.round(res.orderTotal * 100), res.currency) +
+         ' &mdash; item ' + etsyfcFmtC(Math.round(res.item * 100), res.currency) +
+         ' + shipping ' + etsyfcFmtC(Math.round(res.shipping * 100), res.currency);
+    if (res.tax > 0) h += ' + sales tax ' + etsyfcFmtC(Math.round(res.tax * 100), res.currency);
+    h += '</p>';
+    h += '<p><b>Effective fee rate:</b> ' + res.effectiveRate.toFixed(2) + '% of the item price plus shipping</p>';
+    h += '<p><b>You take home:</b> ' + etsyfcFmtC(Math.round(res.takeHome * 100), res.currency);
+    if (res.tax > 0) h += ' &mdash; item plus shipping minus fees. Etsy collects and remits US sales tax itself, so the tax is not paid out to you.';
+    if (res.takeHome < 0) h += ' &mdash; the fees are larger than this order; the fixed fees dominate tiny sales';
+    h += '</p>';
+    if (res.materials !== null) {
+      h += '<p><b>Profit after materials:</b> ' + etsyfcFmtC(Math.round(res.profit * 100), res.currency) +
+           ' (take-home minus ' + etsyfcFmtC(Math.round(res.materials * 100), res.currency) + ' materials)</p>';
+    }
+    out.innerHTML = h;
+  }
+  form.addEventListener('submit', function(e){ e.preventDefault(); render(); });
+  var els = form.querySelectorAll('input, select');
+  for (var j = 0; j < els.length; j++) els[j].addEventListener('change', function(){ syncTax(); render(); });
+  syncTax();
+  render(); // preloaded with the $29.50 / \u00A329.50 worked example from the article
+})();
+</script>
+
 <p><strong>The free route.</strong> Etsy's own fee pages plus a manual spreadsheet. One row per order, four formulas: <code>=0.065*(item+shipping)</code> for transaction, <code>=0.04*order_total+0.20</code> for processing, <code>=0.0048*(item+shipping)</code> for regulatory, and $0.20 (about £0.16) per unit for listings — plus an Offsite Ads column you fill in when an order says it came from an ad. For a handful of orders a month, this is genuinely fine. It is exactly what we would do.</p>
 <p><strong>Our Etsy Seller Profit Tracker ($19, one-time).</strong> Built for the volume version of the same job. The Fee Schedule tab is editable, so a UK seller enters 4% + £0.20 and 0.48% once, and every imported order computes with UK rates. When the regulatory fee changed in June 2026, that was a one-cell edit, not a formula hunt. Paste in your Etsy order CSV and it picks up every order with its fees; the monthly dashboard nets fees, materials and shipping against revenue so profit is a column, not a quarterly surprise. Details: <a href="https://gridworksystems.site">gridworksystems.site</a></p>
 <p>If the free route works for you, take it — the habit of checking fees per order is worth more than any tool. But if you are past a hundred orders a month and still doing this by hand, that is literally what we built. And if cash, not fees, is the current headache, the free 12-month cashflow forecaster is here: <a href="https://gridworksystems.site/go-free.html">gridworksystems.site/go-free.html</a></p>
