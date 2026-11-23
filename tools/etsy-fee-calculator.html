@@ -274,14 +274,36 @@ function pvKey(pathname, referrer, ownHost){
   }
   return 'pv-' + seg + '-' + src;
 }
+function refKey(referrer, ownHost){
+  // A second counter per external referrer HOST ("ref-example-com"), so a listing on another site can be
+  // credited for what it sends. Search and social hosts are already named in the first key; the host
+  // is sent as a bare domain name and nothing else (no path, no query).
+  var r = String(referrer === undefined || referrer === null ? '' : referrer);
+  if (!r) return '';
+  var h = '';
+  try { h = new URL(r).hostname.toLowerCase(); } catch (e) { return ''; }
+  if (!h) return '';
+  var own = String(ownHost === undefined || ownHost === null ? '' : ownHost).toLowerCase();
+  if (h === own || h.slice(-(own.length + 1)) === '.' + own) return '';
+  var bare = h.slice(0, 4) === 'www.' ? h.slice(4) : h;            // www.google.co.uk -> google.co.uk
+  var first = bare.split('.')[0];
+  var knownFirst = ['google', 'bing', 'yahoo', 'duckduckgo', 'youtube', 'youtu', 'pinterest', 'quora', 'reddit',
+                    'facebook', 'fb', 'linkedin', 'twitter', 'etsy'];   // any country domain (google.co.uk ...)
+  if (knownFirst.indexOf(first) >= 0) return '';
+  var known = ['x.com', 't.co'];
+  for (var i = 0; i < known.length; i++) { if (h === known[i] || h.slice(-(known[i].length + 1)) === '.' + known[i]) return ''; }
+  return 'ref-' + h.replace(/\./g, '-').replace(/[^a-z0-9-]/g, '').slice(0, 60);
+}
 (function(){
-  if (typeof document === 'undefined') return; // Node (tests) uses only the pure function above
+  if (typeof document === 'undefined') return; // Node (tests) uses only the pure functions above
   try {
     // Count only the live site: a copy opened from disk (a local test) or any other host is not a
     // visitor. On Nov 23 three local file opens were the only "views" the counters held.
     if (location.hostname !== 'gridworksystems.site' && location.hostname !== 'www.gridworksystems.site') return;
     var k = pvKey(location.pathname, document.referrer, location.hostname);
     fetch('https://abacus.jasoncameron.dev/hit/gridwork/' + k, {method: 'GET', keepalive: true}).catch(function(){});
+    var rk = refKey(document.referrer, location.hostname);
+    if (rk) fetch('https://abacus.jasoncameron.dev/hit/gridwork/' + rk, {method: 'GET', keepalive: true}).catch(function(){});
   } catch (e) {}
 })();
 </script>
