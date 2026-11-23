@@ -44,4 +44,30 @@ setTimeout(function(){window.location.href='/Small_Business_Cashflow_Forecaster.
   </script>
   <div style="color:#64748B;font-size:.8rem;margin-top:.8rem">We reply within 24 hours. No spam, no selling your email, unsubscribe anytime.</div>
 </div>
-</div></body></html>
+</div><script id="pv-beacon">
+(function(){
+  // The free-download funnel page: count views by referrer (source only, host of the referrer when external).
+  // Counts the live site only.
+  if (location.hostname !== 'gridworksystems.site' && location.hostname !== 'www.gridworksystems.site') return;
+  try {
+    var r = String(document.referrer || ''), src = 'direct';
+    if (r) {
+      var h = '';
+      try { h = new URL(r).hostname.toLowerCase(); } catch (e) { h = ''; }
+      if (h) {
+        var own = 'gridworksystems.site';
+        if (h === own || h === 'www.' + own) src = 'internal';
+        else {
+          var first = h.replace(/^www\./, '').split('.')[0];
+          var known = ['google', 'bing', 'yahoo', 'duckduckgo', 'youtube', 'youtu', 'pinterest', 'quora', 'reddit', 'facebook', 'fb', 'linkedin', 'twitter', 'etsy'];
+          src = known.indexOf(first) >= 0 ? first : 'other';
+        }
+        // an external referrer host gets its own key, so a listing on another site can be credited
+        if (src !== 'internal' && src !== 'direct') fetch('https://abacus.jasoncameron.dev/hit/gridwork/ref-' + h.replace(/^www\./, '').replace(/\./g, '-').replace(/[^a-z0-9-]/g, '').slice(0, 60), {method: 'GET', keepalive: true}).catch(function(){});
+      }
+    }
+    fetch('https://abacus.jasoncameron.dev/hit/gridwork/pv-download-' + src, {method: 'GET', keepalive: true}).catch(function(){});
+  } catch (e) {}
+})();
+</script>
+</body></html>
